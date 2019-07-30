@@ -1,0 +1,326 @@
+/* -------------------------------
+REGLES  COMMUNES A TOUTES LES PAGES
+------------------------------- */
+/* pour supprimer toutes les marges et les padding par défaut des navigateurs  */
+* {
+	margin: 0; /*marges extérieures*/
+	padding: 0; /*marges intérieures*/
+}
+
+p, a, .btn, h1, h2, li{
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    color: #fff; 
+    text-decoration: none; 
+}
+
+/* HEADER */
+header .logo{
+    width: 100px; /* une longueur de 100% */
+    height: 50px; /* une hauteur de 50px */
+    margin-left: 20px; /* une marge extérieure à gauche de 20px */
+}
+
+header .link-1, .logo{
+    margin-top: 40px; /* une marge extérieure en haut de 40px */
+}
+
+header .link-1{
+    margin-right: 20px;
+    padding: 2px 20px;
+    font-size: 0.8em; /* taille de la police - em est une unité mais on peut très bien mettre de px */
+    color: #D12636;
+}
+
+/* Au survol du bouton */
+header .link-1:hover{ 
+    color: #1D1212;
+}
+.link-1:hover, .btn-2:hover, .btn-3:hover, .add{
+    -webkit-transition: color .3s; 
+    -o-transition: color .3s; 
+    transition: color .3s; 
+}
+
+/* MENU */
+.nav a{
+    color: #9F9696; 
+    font-size: 1em;
+    margin: 40px 0px;/* avec cette syntaxe tu cible les marges du haut et du bas (40px), puis celles de gauche et de droite (0px)*/
+}
+
+.nav .active{
+    color: #1D1212;
+}
+
+.nav a:hover{
+    color: #D12636;
+    transition: color .3s; /* transition est une animation ; l'animation va portée sur la couleur et elle durera 3ms*/
+}
+
+/* BUTTONS ZONE */
+.bt{
+    padding: 8px 140px; /* avec cette syntaxe tu cible les marges intérieures du haut et du bas (8px), puis celles de gauche et de droite (140px)*/
+    border-radius: 30px; /*permet d'arrondir les bordures d'un élément; si tu mets une valeur ça arrondis les 4 coins*/
+}
+
+.btn-2{
+   border: 1px solid #D12636; /*pour mettre un bordure à un élément ; cette propriété doit contenir 3 valeurs : taille en px de la bodure, la texture de la bordure et la couleur*/
+   color: #D12636; 
+}
+
+.btn-2{
+    background-color: transparent;
+} 
+
+.btn-2:hover{
+    background: #D12636; /*mettre un fond de couleur*/
+    color: #fff; 
+    border: none; /*la valeur none permet de supprimer une bordure*/
+}
+
+/* FOOTER */
+footer{
+    margin-top: 20px;
+}
+
+footer p{
+    padding: 5px;
+    font-size: 0.8em;
+    text-align: center;
+    color:#1D1212;;
+}
+
+/* ---------------------------------
+PAGE PROFIL
+--------------------------------- */
+.banner{
+    background: url('img/banner-img') no-repeat center fixed; /*pour mettre une image en bg il faut mettre l'url (lien externe et lien interne), le not repeat pour éviter que la photo se répète, center pour mettre la photo au centre et fixed pour que la photo ne bouge pas au scroll de la page*/
+    background-size: cover; /* pour que le background prenne toute la largeur de la page*/
+    height: 350px;
+    width: 100%;
+}
+
+.sbt{
+    color: #1D1212;
+    font-size: 1.2em; 
+    text-align: center; /*pour center le texte au milieu de la page*/
+    width: 100%;  
+}
+
+span{
+    color: #D12636; 
+    font-size: 0.8em;
+}
+
+.add{
+    color: #D12636; 
+    font-size: 1.2em;
+}
+
+/*au survol*/
+.add:hover, span:hover{
+    color: #1D1212;
+}
+
+    /* ------------------------------
+    BLOC PREFERENCES
+    ------------------------------ */
+/* .category:hover{
+    box-shadow: 0px 3px 12px #0000003b; /*pour mettre une ombre à un élément : 4 valeurs : l'axe X, l'axe Y, la diffusion et la couleur*/
+    background: rgba(159,150,150, 0.05);
+} */
+.category-item{ 
+    display: flex; 
+}
+
+.img-cat{
+    margin: auto; /*pour centrer l'image au milieu de la page*/
+}
+
+ul li{
+    list-style: none; /* pour supprimer les puces automatiquement mises quand on fait des liste*/
+}
+
+.sup{
+    font-size: 0.8em;
+    color: #1D1212;
+}
+
+.sup:hover{
+    color: #D12636;
+}
+
+/* ------------------------------
+PAGE NEW EVENT
+------------------------------ *
+*/
+.banner-new{
+    background: url('img/banner-new.jpg') no-repeat center fixed;
+    background-size: cover;
+    height: 350px;
+    width: 100%;
+}
+
+h1{
+    margin-top: 150px;
+    color: #D12636; 
+    text-align: center;
+}
+
+#datepicker{
+    margin: 30px; 
+}
+
+.item{
+    margin: auto;
+}
+
+.item-champ{
+    padding: 3px 125px;
+}
+
+.item-champ::placeholder{
+    font-size: 0.8em;
+}
+
+/* -------------------------------
+SUIVRE UN EVENT
+------------------------------- */
+.eDate{
+    background: #1D1212; 
+    width: 50px; 
+    height: 150px;
+}
+
+.eDate ul{
+    margin: auto 0;
+}
+
+.eDate li{
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+}
+.btn-4{
+    padding: 8px 70px;
+    margin-bottom: 15px; 
+    border-radius: 30px; 
+}
+
+/* --------------------
+PAGE ACCUEIL
+-------------------- */
+
+.index{
+    background: url('img/bg-index.jpg') no-repeat center fixed;
+    background-size: cover;
+    height: calc(100vh - 0.1875rem); 
+}
+
+.index .form-item{
+    padding-top: 250px;
+}
+
+.btn-5{
+    padding: 8px 155px; 
+    border-radius: 30px;
+}
+
+.form-control, .form-group ::placeholder{
+    background-color: transparent !important; /*le !important permet se surpasser le css par défaut donné par Bootstrap*/
+    color: #fff !important;
+}
+
+.form-control:focus{
+    border-color: transparent !important; 
+}
+
+/* .form-group ::placeholder{
+    color: #fff !important;
+} */
+
+/* --------------------
+PAGE INSCRIPTION
+-------------------- */
+.sign{
+    background: url('img/bg-inscription.jpg') no-repeat center fixed;
+    background-size: cover;
+    height: calc(100vh - 0.1875rem); 
+}
+
+.sign h1{
+    padding-top: 150px;
+}
+
+.sign .form-control, .sign .form-group ::placeholder{
+    background-color: transparent !important; /*le !important permet se surpasser le css par défaut donné par Bootstrap*/
+    color: #1D1212 !important;
+}
+
+.sign .form-control{
+    border-color: #1D1212 !important;
+}
+
+.sign h1{
+    padding-top: 150px;
+    margin-bottom: 50px
+}
+
+.sign p{
+    color: #fff;
+}
+
+/* --------------------
+PAGE INSCRIPTION
+-------------------- */
+
+.banner-recette{
+    background: url('img/banner-new.jpg') no-repeat;
+    background-size: cover;
+    height: 350px;
+    width: 100%;
+}
+
+.recette h1{
+    text-align: center;
+    font-size: 1.4em; 
+    line-height: 1.6;
+    margin: 50px auto; 
+}
+
+.result img{
+    width: auto;
+    height: 210px;
+}
+
+/* --------------------
+PAGE INSCRIPTION
+-------------------- */
+h4{
+    color: #1D1212;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* --------------------
+MEDIAS QUERIES
+-------------------- */
+
+/*pour supprimer l'affichage des photos sur les écrans de 576px max*/
+@media (max-width: 576px){
+    .img-item{
+        display: none;
+    }
+
+    .btn-contain{
+        display: flex; 
+        justify-content: center;
+    }
+
+    .banner-left{
+        display: none; 
+    }
+}
