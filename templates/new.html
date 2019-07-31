@@ -58,7 +58,7 @@
                 <div class="row">
                     <p class="ml-5">Etape 1 : choississez une date</p>
                 </div>
-                <div id="datepicker"></div>
+                <p>Date: <input type="text" id="datepicker"></p>
                 <div class="row">
                     <input type="text" class="mt-2 ml-5 mb-5 item-champ" placeholder="L'heure de l'événement">
                 </div>
@@ -113,8 +113,11 @@
     AOS.init();
 
     $( function() {
-        $( "#datepicker" ).datepicker();
-    } );
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  } );
 </script>
 </body>
 </html>

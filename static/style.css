@@ -66,19 +66,25 @@ header .link-1:hover{
     border-radius: 30px; /*permet d'arrondir les bordures d'un élément; si tu mets une valeur ça arrondis les 4 coins*/
 }
 
-.btn-2{
+.btn-2, .btn-4, .btn-5{
    border: 1px solid #D12636; /*pour mettre un bordure à un élément ; cette propriété doit contenir 3 valeurs : taille en px de la bodure, la texture de la bordure et la couleur*/
    color: #D12636; 
 }
 
-.btn-2{
+.btn-5{
     background-color: transparent;
 } 
 
-.btn-2:hover{
+.btn-3, .btn-2:hover, .btn-4:hover, .btn-5:hover{
     background: #D12636; /*mettre un fond de couleur*/
     color: #fff; 
     border: none; /*la valeur none permet de supprimer une bordure*/
+}
+
+.btn-3:hover{
+    background: transparent; /*la valeur transparent permet de mettre un bg transparent*/
+    border: 1px solid #D12636; 
+    color: #D12636; 
 }
 
 /* FOOTER */
