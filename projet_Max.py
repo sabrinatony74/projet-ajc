@@ -10,7 +10,9 @@ import random
 import pickle
 import hashlib
 import sqlite3
+import os
 from flask import Flask, request, render_template, redirect, url_for
+from mailjet_rest import Client
 
 app = Flask(__name__)
 
@@ -170,7 +172,7 @@ def sign_up(): #page inscription
         c = conn.cursor() #création du curseur
  
         # On vérifie si l'email existe ou non
-        email_list = c.execute('SELECT email FROM Users') # On parcours la liste des emails de la base de données
+        email_list = c.execute('SELECT email FROM Users').fetchone() # On parcours la liste des emails de la base de données
         if fl.request.form['email'] in email_list : # Test pour savoir si l'email existe ou non
             return fl.render_template('inscription.html', existing_email = True) # Réponse du site si condition 'email déja utilisé' est vraie.
         else:
@@ -189,15 +191,42 @@ def sign_up(): #page inscription
             #     c.execute('INSERT INTO Users (email) VALUES (?)', email) 
             # password = request.form['password']
             #     c.execute('INSERT INTO Users (password) VALUES (?)', password)
-            
-            return fl.redirect(fl.url_for('profil')) # Après stockage des données, envoie vers la vue profil
+             
+            api_key = '4c392ed6313cbe35ff946c4a67bd5698'
+            api_secret = 'ff1d1fd6e23e34400d6b95abe8822706'
+            mailjet = Client(auth=(api_key, api_secret), version='v3.1') # Envoi du mail de confirmation
+            email = request.form['email']
+            data = {
+            'Messages': [
+                {
+                "From": {
+                    "Email": "food.social.network@gmail.com",
+                    "Name": "Food Social Network"
+                },
+                "To": [
+                    {
+                    "Email": email,
+                    "Name": "Users"
+                    }
+                ],
+                "Subject": "Inscription",
+                "TextPart": "Création de votre compte",
+                "HTMLPart": "<h3>Félicitation votre compte a bien été créé<a href='profil.html'>Food Social Network</a></h3>",
+                "CustomID": "AppGettingStartedTest"
+                }
+            ]
+            }
+            result = mailjet.send.create(data=data)
+            print (result.status_code)
+            print (result.json())
         
-        conn.commit #enregistrement des modifications
-        c = conn.close #fermeture de la connection avec la base de données
+            conn.commit #enregistrement des modifications
+            c = conn.close #fermeture de la connection avec la base de données
+
+            return fl.redirect(fl.url_for('profil')) # Après stockage des données, envoie vers la vue profil
     
     else:
         return "Méthode non gérée"
-
 
 
 #si on veut faire une redirection vers une page il faut d'abord créer une vue comme ci-dessous:
