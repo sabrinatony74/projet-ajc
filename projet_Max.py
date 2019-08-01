@@ -119,14 +119,30 @@ c.execute(
 )
 #Ajout des lignes de la table Catégories
 classes = [
-    ('viandes_poissons', ), 
-    ('legumes', ),
-    ('fruits', ),
-    ('feculents', ),
-    ('produits_laitiers', )
+    ('viandes_poissons', ),('legumes', ),('fruits', ),('feculents', ),('produits_laitiers', )
     ]
 c.executemany ('''INSERT INTO Categories (name_cat) VALUES (?)''', classes) 
                     #WHERE NOT EXISTS (VALUES ? FROM Categories WHERE name_cat = ?)''', classes)
+
+#Ajout des lignes de la table Aliment
+classes = [('Boeuf', 1),('Canard', 1),('Dinde', 1),('Lapin', 1),('Mouton', 1),('Porc', 1),('Poulet', 1),
+('Veau', 1),('Anchois', 1),('Cabillaud', 1),('Daurade', 1),('Lotte', 1),('Sole', 1),('Maquereau', 1),('Sardine', 1),
+('Anchois', 1),('Saumon', 1),('Thon', 1),('Truite', 1),('Poulpe', 1),('Crevette', 1),('Moule', 1),('Huître', 1),
+('Langoustine', 1),('Bulot', 1),('Oeuf', 1),('Ail', 2),('Aubergine', 2),('Avocat', 2),('Salade', 2),('Betterave', 2),
+('Carotte', 2),('Céleri', 2),('Citrouille', 2),('Champignon', 2),('Chou blanc', 2),('Chou rouge', 2),('Chou-fleur', 2),('Chou de Bruxelles', 2),
+('Concombre', 2),('Cornichon', 2),('Courgette', 2),('Echalote', 2),('Endive', 2),('Epinard', 2),('Flageolet', 2),
+('Haricots verts', 2),('Haricots rouges', 2),('Oignon', 2),('Olives', 2),('Petit pois', 2),('Persil', 2),('Poivron', 2),('Radis', 2),
+('Salsifis', 2),('Soja', 2),('Tomate', 2),('Abricot', 3),('Ananas', 3),('Banane', 3),('Cassis', 3),('Cerise', 3),
+('Citron', 3),('Citron vert', 3),('Figue', 3),('Fraise', 3),('Framboise', 3),('Fruits de la passion', 3),('Groseille', 3),('Kiwi', 3),
+('Maïs', 3),('Mandarine', 3),('Mangue', 3),('Melon', 3),('Mûre', 3),('Myrtille', 3),('Noix de coco', 3),('Orange', 3),
+('Pamplemousse', 3),('Pastèque', 3),('Pêche', 3),('Poire', 3),('Pomme', 3),('Prune', 3),('Raisin', 3),('Pâtes', 4),
+('Riz', 4),('Pommes de terre', 4),('Quinoa', 4),('Cantal', 5),('Camembert', 5),('Cheddar', 5),('Comté', 5),('Emmental', 5),
+('Féta', 5),('Gruyère', 5),('Mascarpone', 5),('Mozzarella', 5),('Parmesan', 5),('Reblochon', 5),('Ricotta', 5),('Roquefort', 5),
+('Fromage de chèvre', 5),('Lait', 5),('Fromage blanc', 5),('Yaourt', 5)
+]
+c.executemany ('''INSERT INTO Foods (name_fo, id_cat) VALUES (?, ?)''', classes) 
+                    #WHERE NOT EXISTS (VALUES ? FROM Categories WHERE name_cat = ?)''', classes)
+
 #Sauvegarde des changements
 conn.commit()
 #Fermeture connexion
