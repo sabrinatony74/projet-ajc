@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Créer un événement</title>
+
+    <!-- Pour lier la page html au css -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+    
+    <!-- C'est le CDN de bootstrap pour que le site soit responsive  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Polices -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+     crossorigin="anonymous">
+     
+    <!-- JQUERY -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- ANIMATION -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="banner-new">
+        <div class="d-flex justify-content-between">
+            <a href="{{ url_for('profil')}}">
+                <img src="../static/img/logo.svg" alt="logo" title="logo" class="logo">
+            </a>
+            <a href="{{ url_for('index')}}">
+                <button type="button" class="btn link-1">Se déconnecter</button>
+            </a>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="{{ url_for('profil')}}">Mes préférences alimentaires</a>
+            <a class="nav-link" href="{{ url_for('profil', param=param, _anchor='amis')}}">Mes amis</a>
+        </nav>
+    
+        <h1>Créer un événement</h1>
+        <div class="row d-flex justify-content-center">
+            <input type="text" class="mt-2 mb-4 item-champ" placeholder="Nom de l'événement">
+        </div>
+    
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col-12 col-md-6">
+                <img src="../static/img/date.svg" alt="" class="img-item">
+            </div>
+            <div class="col-12 col-md-6 item">
+                <div class="row">
+                    <p class="ml-5">Etape 1 : choississez une date</p>
+                </div>
+                <p>Date: <input type="text" id="datepicker"></p>
+                <div class="row">
+                    <input type="text" class="mt-2 ml-5 mb-5 item-champ" placeholder="L'heure de l'événement">
+                </div>
+                
+            </div> 
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col-12 col-md-6 item">
+                <div class="row">
+                    <p class="ml-5">Etape 2 : choississez une lieu</p>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <input type="text" class="ml-5 item-champ" placeholder="Entrez l'adresse">
+                </div>
+            </div> 
+
+            <div class="col-12 col-md-6">
+                <img src="../static/img/place.svg" alt="" class="img-item">
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col-12 col-md-6">
+                <img src="../static/img/friend.svg" alt="" class="img-item">
+            </div>
+            <div class="col-12 col-md-6 item">
+                <div class="row">
+                    <p class="ml-5 mt-5">Etape 3 : choississez vos invités</p>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <input type="text" class="item-champ ml-5 mb-2" placeholder="Choississez parmi vos amis">
+                    <input type="text" class="item-champ ml-5" placeholder="Envoyez l'invitation par mail">
+                </div>
+            </div> 
+        </div>
+
+        <div class="col-12 mb-3 mt-5 d-flex justify-content-center">
+            <a href="{{ url_for('suivre')}}">
+                <button type="button" class="bt btn-3">Créer un événement</button>
+            </a>
+            
+        </div>
+    </div>
+
+    <footer>
+        <p>©2019 FOOD SOCIAL NETWORK</p>
+    </footer>
+    
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+
+    $( function() {
+    $( "#datepicker" ).datepicker({
+      showWeek: true,
+      firstDay: 1
+    });
+  } );
+</script>
+</body>
+</html>

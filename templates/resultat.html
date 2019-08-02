@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nom de recette</title>
+     <!-- Pour lier la page html au css -->
+     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+
+     <!-- C'est le CDN de bootstrap pour que le site soit responsive  -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+     <!-- Polices -->
+     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- ANIMATION -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="banner-recette">
+        <div class="d-flex justify-content-between">
+            <a href="{{ url_for('profil')}}">
+                <img src="../static/img/logo.svg" alt="logo" title="logo" class="logo">
+            </a>
+            <a href="{{ url_for('index')}}">
+                <button type="button" class="btn link-1">Se déconnecter</button>
+            </a>
+        </div>
+    </header>
+    <div class="container recette">
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <h1>Nom du plat</h1>
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col-12">
+                <h4 class="pb-2">Ingrédients</h4>
+                <ul>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                </ul>
+            </div>
+
+            <div class="col-12">
+                <h4 class="pb-2">Préparation</h4>
+                <ul>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                    <li>lorem</li>
+                </ul>
+            </div> 
+        </div>  
+        
+        <div class="row d-flex justify-content-center" data-aos="fade-up" data-aos-duration="3000">
+            <a href="{{ url_for('recette')}}">
+                <button type="button" class="btn-4">Voir les autres plats</button>
+            </a>
+        </div>
+        
+        
+    </div>
+    <footer>
+        <p>©2019 FOOD SOCIAL NETWORK</p>
+    </footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>    
+</body>
+</html>
